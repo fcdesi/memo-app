@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ひと言メモ帳</title>
+  <style>
+    body{
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .form{
+      display: flex;
+      gap: 8px;
+    }
+    .form input{
+      flex: 1;
+      padding: 8px;
+    }
+    .form button{
+      background-color: #8b5a2b;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+    .form button:hover{
+      background-color: #a8743d;
+    }
+    #list div{
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ひと言メモ帳</h1>
+  <div class="form">
+    <input id="memo" type="text" placeholder="ひと言メモ">
+    <button id="addBtn">追加</button>
+  </div>
+  <div id="list"></div>
+
+  <script>
+    document.getElementById("addBtn").addEventListener("click", function(){
+      const v = document.getElementById("memo").value.trim();
+      if (v !== "") {
+        const item = document.createElement("div");
+        item.textContent = v;
+        document.getElementById("list").append(item);
+        document.getElementById("memo").value = "";
+      }
+    });
+  </script>
+</body>
+</html>
